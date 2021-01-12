@@ -6,6 +6,7 @@ import Banner from "./components/Banner";
 import Movie from "./components/Movie";
 import Event from "./components/Event";
 import Opening from "./components/Opening";
+import New from "./components/New";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Movie />
       <Event />
       <Opening />
+      <New />
     </div>
   );
 }
