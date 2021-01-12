@@ -4,6 +4,8 @@ import React from "react";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Movie from "./components/Movie";
+import Event from "./components/Event";
+import Opening from "./components/Opening";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <Header />
       <Banner />
       <Movie />
+      <Event />
+      <Opening />
     </div>
   );
 }
