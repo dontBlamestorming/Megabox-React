@@ -2,6 +2,28 @@ import React from "react";
 import "../styles/header.scss";
 
 function Header() {
+  const genList = () => {
+    const nameOfNav = [
+      "영화",
+      "큐레이션",
+      "영화관",
+      "특별관",
+      "스토어",
+      "이벤트",
+      "로그인",
+    ];
+
+    const list = nameOfNav.map((name) => {
+      return (
+        <li>
+          <a href="#">{name}</a>
+        </li>
+      );
+    });
+
+    return list;
+  };
+
   return (
     <header>
       <div className="container">
@@ -24,29 +46,7 @@ function Header() {
               </a>
             </nav>
             <nav className="nav">
-              <ul className="clearfix">
-                <li>
-                  <a href="#">영화</a>
-                </li>
-                <li>
-                  <a href="#">큐레이션</a>
-                </li>
-                <li>
-                  <a href="#">영화관</a>
-                </li>
-                <li>
-                  <a href="#">특별관</a>
-                </li>
-                <li>
-                  <a href="#">스토어</a>
-                </li>
-                <li>
-                  <a href="#">이벤트</a>
-                </li>
-                <li>
-                  <a href="#">로그인</a>
-                </li>
-              </ul>
+              <ul className="clearfix">{genList()}</ul>
             </nav>
           </div>
         </div>
