@@ -1,5 +1,17 @@
 @charset "utf-8";
 
+/* Megabox page 가운데 정렬 및 row */
+
+.container {
+  position: relative;
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.row {
+  padding: 0 16px;
+}
+
 /* 여백 초기화 */
 body,
 div,
