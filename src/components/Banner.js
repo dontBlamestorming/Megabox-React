@@ -1,7 +1,65 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import "../styles/banner.scss";
 
+// Import Swiper scss
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+
 function Banner() {
+  const genSlide = () => {
+    const slidesInfo = [
+      {
+        title: "워킹데드",
+        desc: "좀비로 가득한 세상에서 살아남은 생존자들의 사투를 그린 드라마",
+        img: "ss1",
+      },
+      {
+        title: "어벤져스 : 앤드게임",
+        desc: "역대 최댄기간 1000만 관객 돌파 기록",
+        img: "ss2",
+      },
+      {
+        title: "왕좌의 게임",
+        desc: "철 왕좌를 차지하기 위한 싸움을 그려낸 드라마",
+        img: "ss3",
+      },
+    ];
+
+    const slides = slidesInfo.map((info) => {
+      return (
+        <SwiperSlide className={`swiper-slide ${info.img}`}>
+          <div className="container">
+            <div className="row">
+              <h3>{info.title}</h3>
+              <p>{info.desc}</p>
+            </div>
+          </div>
+        </SwiperSlide>
+      );
+    });
+
+    return slides;
+  };
+
+  const SwiperSlider = () => {
+    SwiperCore.use([Navigation, Pagination, Autoplay]);
+
+    return (
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        autoplay
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+      >
+        {genSlide()}
+      </Swiper>
+    );
+  };
   return (
     <section id="banner">
       <div className="banner_menu">
@@ -47,35 +105,7 @@ function Banner() {
       </div>
       <div className="slider">
         <div className="swiper-container">
-          <div className="swiper-wrapper">
-            <div className="swiper-slide ss1">
-              <div className="container">
-                <div className="row">
-                  <h3>어벤져스 : 앤드게임</h3>
-                  <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                </div>
-              </div>
-            </div>
-            <div className="swiper-slide ss2">
-              <div className="container">
-                <div className="row">
-                  <h3>어벤져스 : 앤드게임</h3>
-                  <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                </div>
-              </div>
-            </div>
-            <div className="swiper-slide ss3">
-              <div className="container">
-                <div className="row">
-                  <h3>어벤져스 : 앤드게임</h3>
-                  <p>역대 최단 기간 1000만 관객 돌파 기록 </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="swiper-pagination"></div>
-          <div className="swiper-button-prev"></div>
-          <div className="swiper-button-next"></div>
+          <div className="swiper-wrapper">{SwiperSlider()}</div>
         </div>
       </div>
     </section>

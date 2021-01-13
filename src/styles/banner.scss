@@ -1,20 +1,25 @@
 @import "reset";
 
+$banner-text: #fff;
+$banner-text-hover: #c1c1c1;
+$banner-total-hover: #000;
+$ticketing-text: #3a0e6a;
+$ticketing-border: #6e40c4;
+
+@mixin set-of-right-boxes {
+  width: 80px;
+  padding: 7px 30px 9px 30px;
+  display: inline-block;
+}
+
+@mixin slider-img($url) {
+  background: url($url) no-repeat center center;
+  background-size: cover;
+}
+
 #banner {
   position: relative;
   background: rgba(0, 0, 0, 0.1);
-}
-
-/* 가운데 영역 */
-.container {
-  position: relative;
-  width: 1280px;
-  margin: 0 auto; /* background:rgba(0,0,0,0.1); */
-}
-
-/* 로우 영역 */
-.row {
-  padding: 0 16px;
 }
 
 .banner_menu {
@@ -25,90 +30,139 @@
   width: 100%;
   height: 100px;
   z-index: 10;
+
+  a {
+    color: $banner-text;
+    font-size: 16px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $banner-text-hover;
+    }
+  }
 }
-.banner_menu a {
-  color: #fff;
-  font-size: 16px;
-  transition: all 0.3s;
-}
-.banner_menu a:hover {
-  color: #c1c1c1;
-}
-.banner_menu .bm_left {
+
+.bm_left {
   float: left;
+
+  ul {
+    padding-top: 7px;
+
+    li {
+      display: inline;
+      position: relative;
+      margin-right: 30px;
+    }
+
+    li.total {
+      margin-right: 20px;
+      a {
+        font-size: 14px;
+        padding: 3px 10px;
+        display: inline-block;
+        border: 1px solid $banner-text;
+        transition: all 0.3s;
+
+        &:hover {
+          background: $banner-text;
+          border-color: $banner-total-hover;
+          color: $banner-total-hover;
+        }
+      }
+    }
+  }
 }
-.banner_menu .bm_left ul {
-  padding-top: 7px;
-}
-.banner_menu .bm_left li {
-  display: inline;
-  position: relative;
-}
-.banner_menu .bm_left li {
-  margin-right: 30px;
-}
-.banner_menu .bm_left li.total {
-  margin-right: 20px;
-}
-.banner_menu .bm_left li.total a {
-  font-size: 14px;
-  padding: 3px 10px;
-  display: inline-block;
-  border: 1px solid #fff;
-  transition: all 0.3s;
-}
-.banner_menu .bm_left li.total a:hover {
-  background: #fff;
-  border-color: #000;
-  color: #000;
-}
-.banner_menu .bm_right {
+
+.bm_right {
   float: right;
   overflow: hidden;
+
+  ul {
+    float: left;
+
+    &:first-child {
+      padding-top: 7px;
+    }
+  }
+
+  li {
+    position: relative;
+    display: inline;
+    text-align: center;
+    margin-right: 20px;
+  }
+
+  li.line {
+    margin-right: 30px;
+
+    &:after {
+      content: "";
+      width: 1px;
+      height: 14px;
+      background: $banner-text;
+      position: absolute;
+      right: -18px;
+      top: 2px;
+    }
+  }
+
+  li.white {
+    margin-right: 10px;
+
+    a {
+      @include set-of-right-boxes;
+      background-color: $banner-text;
+      color: $ticketing-text;
+      border: 1px solid $banner-text;
+    }
+  }
+
+  li.purple {
+    margin-right: 0;
+
+    a {
+      @include set-of-right-boxes;
+      background-color: $ticketing-text;
+      color: $banner-text;
+      border: 1px solid $ticketing-border;
+    }
+  }
 }
-.banner_menu .bm_right ul {
-  float: left;
-}
-.banner_menu .bm_right ul:first-child {
-  padding-top: 7px;
-}
-.banner_menu .bm_right li {
-  position: relative;
-  display: inline;
-  text-align: center;
-  margin-right: 20px;
-}
-.banner_menu .bm_right li.line {
-  margin-right: 30px;
-}
-.banner_menu .bm_right li.white {
-  margin-right: 10px;
-}
-.banner_menu .bm_right li.purple {
-  margin-right: 0;
-}
-.banner_menu .bm_right li.white a {
-  width: 80px;
-  background-color: #fff;
-  color: #3a0e6a;
-  padding: 7px 30px 9px 30px;
-  display: inline-block;
-  border: 1px solid #fff;
-}
-.banner_menu .bm_right li.purple a {
-  width: 80px;
-  background-color: #3a0e6a;
-  color: #fff;
-  padding: 7px 30px 9px 30px;
-  display: inline-block;
-  border: 1px solid #6e40c4;
-}
-.banner_menu li.line:after {
-  content: "";
-  width: 1px;
-  height: 14px;
-  background: #fff;
-  position: absolute;
-  right: -18px;
-  top: 2px;
+
+/* 슬라이드 */
+
+.slider {
+  width: 100%;
+
+  .ss1 {
+    @include slider-img("./assets/main_slider01_2000.jpg");
+  }
+  .ss2 {
+    @include slider-img("./assets/main_slider02_2000.jpg");
+  }
+  .ss3 {
+    @include slider-img("./assets/main_slider03_2000.jpg");
+  }
+
+  .swiper-slide {
+    text-align: center;
+
+    h3 {
+      font-size: 60px;
+      color: #fff;
+      margin-top: 250px;
+      opacity: 1;
+    }
+
+    p {
+      font-size: 24px;
+      color: #bbb;
+      margin-bottom: 200px;
+      font-weight: 100;
+    }
+  }
+
+  .swiper-slide.ss3 {
+    text-align: left;
+  }
 }
