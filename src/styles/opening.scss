@@ -1,80 +1,80 @@
 @import "reset";
 
+@mixin opening_headline($x, $y, $display, $width, $height) {
+  background-position: ($x) ($y);
+  display: ($display);
+  width: ($width);
+  height: ($height);
+}
+
 #opening {
   margin: 24px 0;
-  //   background: url(../img/bg01.jpg) no-repeat center top;
+  background: url("./assets/bg01.jpg") no-repeat center top;
   background-size: cover;
-}
-
-.container {
-  position: relative;
-  width: 1280px;
-  margin: 0 auto; /* background:rgba(0,0,0,0.1); */
-}
-
-/* 로우 영역 */
-.row {
-  padding: 0 16px;
 }
 
 .opening {
   padding: 100px 0;
   text-align: center;
   color: #bb9b51;
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  .grand {
+    @include opening_headline(0, -175px, inline-block, 330px, 50px);
+  }
+
+  .date {
+    @include opening_headline(0, -225px, inline-block, 260px, 45px);
+  }
+
+  .desc {
+    font-size: 35px;
+    font-weight: 300;
+    padding-bottom: 20px;
+    background: url("./assets/bar.png") no-repeat bottom center;
+    background-size: 100%;
+  }
 }
-.opening h2 {
-  margin-bottom: 15px;
-}
-.opening h2 .grand {
-  background-position: 0 -175px;
-  display: inline-block;
-  width: 330px;
-  height: 50px;
-}
-.opening .date {
-  background-position: 0 -225px;
-  display: inline-block;
-  width: 260px;
-  height: 45px;
-}
-.opening .desc {
-  font-size: 35px;
-  font-weight: 300;
-  padding-bottom: 20px;
-  //   background: url(../img/bar.png) no-repeat bottom center;
-  background-size: 100%;
-}
-.opening .open_box {
+
+.open_boxes {
   overflow: hidden;
   padding: 20px 3% 0 3%;
-}
-.opening .open_box > div {
-  float: left;
-  width: 27.333%;
-  margin: 4% 3% 0 3%;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid #3e4b44;
-}
-.opening .open_box > div h3 {
-  color: #fff;
-  border: 1px solid #6e3abb;
-  margin-top: -24px;
-  font-size: 19px;
-  display: inline-block;
-  padding: 10px 20px;
-  background: #551e9b;
-}
-.opening .open_box > div p {
-  font-size: 27px;
-  color: #fff;
-  font-weight: 300;
-  padding: 6% 0 10% 0;
-}
-.opening .open_box > div em {
-  display: block;
-}
-.opening .open_box > div strong {
-  display: block;
-  font-weight: 700;
+
+  .open_box {
+    float: left;
+    width: 27.333%;
+    margin: 4% 3% 0 3%;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #3e4b44;
+
+    .box_title {
+      color: #fff;
+      border: 1px solid #6e3abb;
+      margin-top: -24px;
+      font-size: 19px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #551e9b;
+    }
+
+    .box_content {
+      font-size: 27px;
+      color: #fff;
+      font-weight: 300;
+      padding: 6% 0 10% 0;
+
+      .box_state {
+        display: block;
+      }
+
+      .box_location {
+        @extend .box_state;
+        font-weight: 700;
+      }
+    }
+  }
 }
