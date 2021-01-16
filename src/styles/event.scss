@@ -1,45 +1,39 @@
 @import "reset";
 
-#event {
-}
-
-.container {
-  position: relative;
-  width: 1280px;
-  margin: 0 auto; /* background:rgba(0,0,0,0.1); */
-}
-
-/* 로우 영역 */
-.row {
-  padding: 0 16px;
+@mixin eventBox($direction, $percent) {
+  float: $direction;
+  width: $percent;
 }
 
 .event {
   overflow: hidden;
   padding: 100px 0;
+
+  img {
+    display: block;
+  }
+
+  h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
 }
-.event img {
-  display: block;
-}
-.event h2 {
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
+
 .event_left {
-  float: left;
-  width: 66%;
+  @include eventBox(left, 66%);
+
   margin-right: 2%;
+
+  .event_box1 {
+    @include eventBox(left, 50%);
+  }
+
+  .event_box2 {
+    @include eventBox(left, 50%);
+  }
 }
-.event_left .event_box1 {
-  float: left;
-  width: 50%;
-}
-.event_left .event_box2 {
-  float: left;
-  width: 50%;
-}
+
 .event_right {
-  float: left;
-  width: 32%;
+  @include eventBox(left, 32%);
 }
