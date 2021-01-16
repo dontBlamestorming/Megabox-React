@@ -1,252 +1,117 @@
-import React from "react";
+import React, { useState } from "react";
+import { movie__slidesInfo } from "../data.js";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import "../styles/movie.scss";
 
+// Import Swiper scss
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
+
 function Movie() {
+  const [activation, setActivation] = useState(-1);
+
+  const genSlide = () => {
+    const slides = movie__slidesInfo.map((info) => {
+      return (
+        <SwiperSlide>
+          <div className="poster">
+            <figure>
+              <img
+                src={`assets/img/poster${info.rank}.jpg`}
+                srcSet={`assets/img/poster0${info.rank}@2.jpg 2x`}
+                alt={info.title}
+              />
+            </figure>
+            <div className="rank">
+              <strong>{info.rank}</strong>
+            </div>
+            <div className="mx">
+              <span className="icon m ir_pm">MX</span>
+            </div>
+          </div>
+
+          <div className="infor">
+            <h3>
+              <span className={`icon ${info.limit.en} ir_pm`}>
+                {info.limit.ko}
+              </span>{" "}
+              <strong>{info.title}</strong>
+            </h3>
+            <div className="infor_btn">
+              <a href="#">상세정보</a>
+              <a href="#">예매하기</a>
+            </div>
+          </div>
+        </SwiperSlide>
+      );
+    });
+
+    return slides;
+  };
+
+  const SwiperSlider = () => {
+    SwiperCore.use([Navigation, Pagination, Autoplay]);
+
+    return (
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={4}
+        autoplay
+        scrollbar={{ draggable: true }}
+      >
+        {genSlide()}
+      </Swiper>
+    );
+  };
+
+  const genMovieChart = () => {
+    const numOfChart = [1, 2, 3, 4];
+
+    const chart = numOfChart.map((num, index) => {
+      if (activation === index) {
+        return (
+          <div key={index} className={`chart_cont${num} `}>
+            <div className="movie_chart">{SwiperSlider()}</div>
+          </div>
+        );
+      }
+    });
+
+    return chart;
+  };
+
+  const genList = () => {
+    const nameOfNav = ["박스오피스", "최신개봉작", "상영예정작", "큐레이션"];
+
+    const list = nameOfNav.map((name, index) => {
+      return (
+        <li
+          key={index}
+          className={activation === index ? "active" : ""}
+          onClick={(e) => {
+            e.preventDefault();
+            setActivation(index);
+          }}
+        >
+          <a href="#">{name}</a>
+        </li>
+      );
+    });
+
+    return list;
+  };
+
   return (
     <section id="movie">
-      <div class="container">
-        <div class="row">
-          <h2 class="ir_so">영화 예매</h2>
-          <div class="movie">
-            <div class="movie_title">
-              <ul class="clearfix">
-                <li class="active">
-                  <a href="#">박스오피스</a>
-                </li>
-                <li>
-                  <a href="#">최신개봉작</a>
-                </li>
-                <li>
-                  <a href="#">상영예정작</a>
-                </li>
-                <li>
-                  <a href="#">큐레이션</a>
-                </li>
-              </ul>
+      <div className="container">
+        <div className="row">
+          <h2 className="ir_so">영화 예매</h2>
+          <div className="movie">
+            <div className="movie_title">
+              <ul className="clearfix">{genList()}</ul>
             </div>
-            <div class="movie_chart">
-              <div class="swiper-container2">
-                <div class="chart_cont1 swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="poster">
-                      <figure>
-                        <img
-                          src="assets/img/poster01.jpg"
-                          srcset="assets/img/poster01@2.jpg 2x"
-                          alt="침묵"
-                        />
-                      </figure>
-                      <div class="rank">
-                        <strong>1</strong>
-                      </div>
-                      <div class="mx">
-                        <span class="icon m ir_pm">MX</span>
-                        <span class="icon b ir_pm">Boutique</span>
-                      </div>
-                    </div>
-                    <div class="infor">
-                      <h3>
-                        <span class="icon all ir_pm">전체관람가</span>{" "}
-                        <strong>침묵</strong>
-                      </h3>
-                      <div class="infor_btn">
-                        <a href="#">상세정보</a>
-                        <a href="#">예매하기</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="poster">
-                      <figure>
-                        <img
-                          src="assets/img/poster02.jpg"
-                          srcset="assets/img/poster02@2.jpg 2x"
-                          alt="신세계"
-                        />
-                      </figure>
-                      <div class="rank">
-                        <strong>2</strong>
-                      </div>
-                      <div class="mx">
-                        <span class="icon m ir_pm">MX</span>
-                      </div>
-                    </div>
-                    <div class="infor">
-                      <h3>
-                        <span class="icon a19 ir_pm">19세 이상 관람</span>{" "}
-                        <strong>신세계</strong>
-                      </h3>
-                      <div class="infor_btn">
-                        <a href="#">상세정보</a>
-                        <a href="#">예매하기</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="poster">
-                      <figure>
-                        <img
-                          src="assets/img/poster03.jpg"
-                          srcset="assets/img/poster03@2.jpg 2x"
-                          alt="마스터"
-                        />
-                      </figure>
-                      <div class="rank">
-                        <strong>3</strong>
-                      </div>
-                      <div class="mx">
-                        <span class="icon m ir_pm">MX</span>
-                      </div>
-                    </div>
-                    <div class="infor">
-                      <h3>
-                        <span class="icon a12 ir_pm">12세 이상 관람</span>{" "}
-                        <strong>마스터</strong>
-                      </h3>
-                      <div class="infor_btn">
-                        <a href="#">상세정보</a>
-                        <a href="#">예매하기</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="poster">
-                      <figure>
-                        <img
-                          src="assets/img/poster04.jpg"
-                          srcset="assets/img/poster04@2.jpg 2x"
-                          alt="마약왕"
-                        />
-                      </figure>
-                      <div class="rank">
-                        <strong>4</strong>
-                      </div>
-                      <div class="mx">
-                        <span class="icon m ir_pm">MX</span>
-                      </div>
-                    </div>
-                    <div class="infor">
-                      <h3>
-                        <span class="icon a15 ir_pm">15세 이상 관람</span>{" "}
-                        <strong>마약왕</strong>
-                      </h3>
-                      <div class="infor_btn">
-                        <a href="#">상세정보</a>
-                        <a href="#">예매하기</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="poster">
-                      <figure>
-                        <img
-                          src="assets/img/poster05.jpg"
-                          srcset="assets/img/poster05@2.jpg 2x"
-                          alt="마약왕"
-                        />
-                      </figure>
-                      <div class="rank">
-                        <strong>5</strong>
-                      </div>
-                      <div class="mx">
-                        <span class="icon m ir_pm">MX</span>
-                      </div>
-                    </div>
-                    <div class="infor">
-                      <h3>
-                        <span class="icon a15 ir_pm">15세 이상 관람</span>{" "}
-                        <strong>마약왕</strong>
-                      </h3>
-                      <div class="infor_btn">
-                        <a href="#">상세정보</a>
-                        <a href="#">예매하기</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="poster">
-                      <figure>
-                        <img
-                          src="assets/img/poster06.jpg"
-                          srcset="assets/img/poster06@2.jpg 2x"
-                          alt="마약왕"
-                        />
-                      </figure>
-                      <div class="rank">
-                        <strong>6</strong>
-                      </div>
-                      <div class="mx">
-                        <span class="icon m ir_pm">MX</span>
-                      </div>
-                    </div>
-                    <div class="infor">
-                      <h3>
-                        <span class="icon a15 ir_pm">15세 이상 관람</span>{" "}
-                        <strong>마약왕</strong>
-                      </h3>
-                      <div class="infor_btn">
-                        <a href="#">상세정보</a>
-                        <a href="#">예매하기</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="poster">
-                      <figure>
-                        <img
-                          src="assets/img/poster07.jpg"
-                          srcset="assets/img/poster07@2.jpg 2x"
-                          alt="마약왕"
-                        />
-                      </figure>
-                      <div class="rank">
-                        <strong>7</strong>
-                      </div>
-                      <div class="mx">
-                        <span class="icon m ir_pm">MX</span>
-                      </div>
-                    </div>
-                    <div class="infor">
-                      <h3>
-                        <span class="icon a15 ir_pm">15세 이상 관람</span>{" "}
-                        <strong>마약왕</strong>
-                      </h3>
-                      <div class="infor_btn">
-                        <a href="#">상세정보</a>
-                        <a href="#">예매하기</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="poster">
-                      <figure>
-                        <img
-                          src="assets/img/poster08.jpg"
-                          srcset="assets/img/poster08@2.jpg 2x"
-                          alt="마약왕"
-                        />
-                      </figure>
-                      <div class="rank">
-                        <strong>8</strong>
-                      </div>
-                      <div class="mx">
-                        <span class="icon m ir_pm">MX</span>
-                      </div>
-                    </div>
-                    <div class="infor">
-                      <h3>
-                        <span class="icon a15 ir_pm">15세 이상 관람</span>{" "}
-                        <strong>마약왕</strong>
-                      </h3>
-                      <div class="infor_btn">
-                        <a href="#">상세정보</a>
-                        <a href="#">예매하기</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="swiper-container2">{genMovieChart()}</div>
           </div>
         </div>
       </div>
