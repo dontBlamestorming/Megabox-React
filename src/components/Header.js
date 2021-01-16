@@ -1,19 +1,10 @@
 import React from "react";
 import "../styles/header.scss";
+import { header__nameOfNav } from "../data.js";
 
 function Header() {
   const genList = () => {
-    const nameOfNav = [
-      "영화",
-      "큐레이션",
-      "영화관",
-      "특별관",
-      "스토어",
-      "이벤트",
-      "로그인",
-    ];
-
-    const list = nameOfNav.map((name) => {
+    const list = header__nameOfNav.map((name) => {
       return (
         <li>
           <a href="#">{name}</a>
