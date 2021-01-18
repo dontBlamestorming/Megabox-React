@@ -4,9 +4,9 @@ import { header__nameOfNav } from "../data.js";
 
 function Header() {
   const genList = () => {
-    const list = header__nameOfNav.map((name) => {
+    const list = header__nameOfNav.map((name, i) => {
       return (
-        <li>
+        <li key={i}>
           <a href="#">{name}</a>
         </li>
       );
@@ -16,7 +16,7 @@ function Header() {
   };
 
   return (
-    <header>
+    <header id="header">
       <div className="container">
         <div className="row">
           <div className="header clearfix">
