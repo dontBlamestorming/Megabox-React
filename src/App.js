@@ -19,7 +19,7 @@ function App() {
       <Event />
       <Opening />
       <New />
-      {/* <Help /> */}
+      <Help />
       <Footer />
     </div>
   );
