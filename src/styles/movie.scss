@@ -1,5 +1,9 @@
 @import "reset";
 
+@mixin icon($x, $y) {
+  background-position: $x $y;
+}
+
 #movie {
   background-color: #f2f2f2;
 }
@@ -81,12 +85,16 @@
         position: absolute;
         top: 17px;
         right: 17px;
-      }
 
-      span {
-        width: 103px;
-        height: 25px;
-        display: block;
+        .m {
+          background-position: 0 -75px;
+        }
+
+        span {
+          width: 103px;
+          height: 25px;
+          display: block;
+        }
       }
     }
 
@@ -113,6 +121,22 @@
           margin-top: 9px;
           vertical-align: -2px;
         }
+      }
+
+      .all {
+        @include icon(-87px, -125px);
+      }
+
+      .a12 {
+        @include icon(-58px, -125px);
+      }
+
+      .a15 {
+        @include icon(0, -125px);
+      }
+
+      .a19 {
+        @include icon(-29px, -125px);
       }
 
       .infor_btn {
