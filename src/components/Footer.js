@@ -6,7 +6,7 @@ function Footer() {
     const list = footer__sns__info.map((info, i) => {
       return (
         <li className={`icon s${i + 1}`} key={i}>
-          <a href="#">
+          <a href="/#">
             <span className="ir_pm">{info}</span>
           </a>
         </li>
@@ -20,7 +20,7 @@ function Footer() {
     const list = footer__infor__info.map((info, i) => {
       return (
         <li key={i}>
-          <a href="#">{info}</a>
+          <a href="/#">{info}</a>
         </li>
       );
     });
@@ -35,7 +35,7 @@ function Footer() {
           <div className="footer_sns">
             <ul>{snsGenList()}</ul>
             <div className="tel">
-              <a href="#">
+              <a href="/#">
                 ARS <em>1544-0070</em>
               </a>
             </div>

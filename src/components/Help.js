@@ -15,11 +15,11 @@ function Help() {
     const list = help__service__info.map((info, i) => {
       return (
         <li key={i}>
-          <a href="#">
+          <a href="/#">
             <span className="img_svg">
               <img
                 src={`/assets/img/${info.svg}.svg`}
-                srcset={`/assets/img/${info.svg}.svg`}
+                srcSet={`/assets/img/${info.svg}.svg`}
                 alt={`card0${i + 1}`}
               />
             </span>
@@ -35,11 +35,11 @@ function Help() {
     const list = help__card__info.map((info, i) => {
       return (
         <li key={i}>
-          <a href="#">
+          <a href="/#">
             <span>
               <img
                 src={`assets/img/card0${i + 1}.jpg`}
-                srcset={`assets/img/card0${i + 1}@2.jpg 2x`}
+                srcSet={`assets/img/card0${i + 1}@2.jpg 2x`}
                 alt={`card0${i + 1}`}
               />
             </span>
@@ -54,9 +54,9 @@ function Help() {
   };
 
   const allNoticeGenList = () => {
-    const list = help__allNotice__info.map((info) => {
+    const list = help__allNotice__info.map((info, i) => {
       return (
-        <li>
+        <li key={i}>
           <dl>
             <dt>
               <strong className="bar">{info.coverage}</strong>
@@ -72,9 +72,9 @@ function Help() {
   };
 
   const movieNoticeGenList = () => {
-    const list = help__movieNotice__info.map((info) => {
+    const list = help__movieNotice__info.map((info, i) => {
       return (
-        <li>
+        <li key={i}>
           <dl>
             <dt>
               <strong className="bar">{info.coverage}</strong>
@@ -107,7 +107,7 @@ function Help() {
               <div className="notice">
                 <ul>
                   <li className={`${activation && "active"}`}>
-                    <a href="#" onClick={handleOnClick}>
+                    <a href="/#" onClick={handleOnClick}>
                       전체 공지
                     </a>
                   </li>
@@ -118,7 +118,7 @@ function Help() {
                   </li>
 
                   <li className={`${!activation && "active"}`}>
-                    <a href="#" onClick={handleOnClick}>
+                    <a href="/#" onClick={handleOnClick}>
                       영화관 공지
                     </a>
                     <li>

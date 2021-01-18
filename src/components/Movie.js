@@ -18,8 +18,8 @@ function Movie() {
           <div className="poster">
             <figure>
               <img
-                src={`assets/img/poster${info.rank}.jpg`}
-                srcSet={`assets/img/poster0${info.rank}@2.jpg 2x`}
+                src={`/assets/img/poster${info.rank}.jpg`}
+                srcSet={`/assets/img/poster0${info.rank}@2.jpg 2x`}
                 alt={info.title}
               />
             </figure>
@@ -39,8 +39,8 @@ function Movie() {
               <strong>{info.title}</strong>
             </h3>
             <div className="infor_btn">
-              <a href="#">상세정보</a>
-              <a href="#">예매하기</a>
+              <a href="/#">상세정보</a>
+              <a href="/#">예매하기</a>
             </div>
           </div>
         </SwiperSlide>
@@ -94,7 +94,7 @@ function Movie() {
             setActivation(index);
           }}
         >
-          <a href="#">{name}</a>
+          <a href="/#">{name}</a>
         </li>
       );
     });
@@ -111,7 +111,7 @@ function Movie() {
             <div className="movie_title">
               <ul className="clearfix">{genList()}</ul>
             </div>
-            <div class="swiper-container2">{genMovieChart()}</div>
+            <div className="swiper-container2">{genMovieChart()}</div>
           </div>
         </div>
       </div>

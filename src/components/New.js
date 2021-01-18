@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/new.scss";
-import { PlayBtn } from "./SVG/Svg";
 import { new__inputTime } from "../data";
 
 function New() {
@@ -26,7 +25,23 @@ function New() {
             </h2>
             <div className="new_left">
               <div className="play" id="showTrailer" data-youtube="F1239ZePXfM">
-                <PlayBtn />
+                <svg
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 120 120"
+                  style={{ "enable-background": "new 0 0 120 120" }}
+                  xmlSpace="preserve"
+                >
+                  <circle className="st0" cx="60" cy="60.4" r="56" />
+                  <path
+                    className="st1"
+                    d="M81,65.4c4.8-2.8,4.8-7.2,0-10L53.5,39.6c-4.8-2.8-8.7-0.5-8.7,5v31.7c0,5.5,3.9,7.8,8.7,5L81,65.4z"
+                  />
+                </svg>
               </div>
             </div>
             <div className="new_right">
@@ -64,10 +79,11 @@ function New() {
               </ul>
               <div className="select">
                 <div className="s1">
-                  <label for="udate" className="ir_so">
+                  <label htmlFor="udate" className="ir_so">
                     날짜
                   </label>
                   <input
+                    readOnly
                     type="text"
                     id="udate"
                     name="udate"
@@ -76,7 +92,7 @@ function New() {
                   />
                 </div>
                 <div className="s2">
-                  <label for="utime" className="ir_so">
+                  <label htmlFor="utime" className="ir_so">
                     시간
                   </label>
                   <select id="utime" name="utime" className="ui_select2">
@@ -84,10 +100,11 @@ function New() {
                   </select>
                 </div>
                 <div className="s3">
-                  <label for="utext" className="ir_so">
+                  <label htmlFor="utext" className="ir_so">
                     주소 또는 도로명을 입력해주세요.
                   </label>
                   <input
+                    readOnly
                     type="text"
                     id="utext"
                     name="utext"
@@ -97,10 +114,10 @@ function New() {
                 </div>
               </div>
               <div className="btn">
-                <a href="#" className="white">
+                <a href="/#" className="white">
                   좌석확인
                 </a>
-                <a href="#" className="purple">
+                <a href="/#" className="purple">
                   예매하기
                 </a>
               </div>

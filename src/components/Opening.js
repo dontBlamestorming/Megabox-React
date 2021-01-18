@@ -4,9 +4,9 @@ import { opening__info } from "../data.js";
 
 function Opening() {
   const genOpenBoxes = () => {
-    const box = opening__info.map((info) => {
+    const box = opening__info.map((info, i) => {
       return (
-        <div className="open_box">
+        <div className="open_box" key={i}>
           <h3 className="box_title">{info.title}</h3>
           <p className="box_content">
             <em className="box_state">{info.state}</em>

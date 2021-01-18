@@ -11,9 +11,9 @@ import "swiper/components/pagination/pagination.scss";
 
 function Banner() {
   const genSlide = () => {
-    const slides = banner__slidesInfo.map((info) => {
+    const slides = banner__slidesInfo.map((info, i) => {
       return (
-        <SwiperSlide className={`swiper-slide ${info.img}`}>
+        <SwiperSlide className={`swiper-slide ${info.img}`} key={i}>
           <div className="container">
             <div className="row">
               <h3>{info.title}</h3>
@@ -52,13 +52,13 @@ function Banner() {
             <div className="bm_left">
               <ul>
                 <li className="total">
-                  <a href="#">전체메뉴</a>
+                  <a href="/#">전체메뉴</a>
                 </li>
                 <li className="line">
-                  <a href="#">필름 소사이어티</a>
+                  <a href="/#">필름 소사이어티</a>
                 </li>
                 <li>
-                  <a href="#">클래식 소사이어티</a>
+                  <a href="/#">클래식 소사이어티</a>
                 </li>
               </ul>
             </div>
@@ -68,18 +68,18 @@ function Banner() {
                   <a href="custom/faq.html">고객센터</a>
                 </li>
                 <li className="line">
-                  <a href="#">멤버쉽</a>
+                  <a href="/#">멤버쉽</a>
                 </li>
                 <li>
-                  <a href="#">VIP</a>
+                  <a href="/#">VIP</a>
                 </li>
               </ul>
               <ul>
                 <li className="white">
-                  <a href="#">상영시간표</a>
+                  <a href="/#">상영시간표</a>
                 </li>
                 <li className="purple">
-                  <a href="#">빠른예매</a>
+                  <a href="/#">빠른예매</a>
                 </li>
               </ul>
             </div>

@@ -7,7 +7,7 @@ function Header() {
     const list = header__nameOfNav.map((name, i) => {
       return (
         <li key={i}>
-          <a href="#">{name}</a>
+          <a href="/#">{name}</a>
         </li>
       );
     });
@@ -21,7 +21,7 @@ function Header() {
         <div className="row">
           <div className="header clearfix">
             <h1>
-              <a href="#">
+              <a href="/#">
                 <em>
                   <img src="assets/img/logo.png" alt="MEGABOX" />
                 </em>
@@ -32,7 +32,7 @@ function Header() {
             </h1>
             <nav id="mNav">
               <h2 className="ir_so">메가박스 전체메뉴</h2>
-              <a href="#" className="ham">
+              <a href="/#" className="ham">
                 <span></span>
               </a>
             </nav>
