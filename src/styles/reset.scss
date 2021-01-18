@@ -152,14 +152,14 @@ img {
 
 /* 아이콘 이미지 최적화 작업(sprite)  */
 .icon {
-  background-image: url("./assets/icon.png");
+  background-image: url("../assets/icon.png");
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
   only screen and (min-device-pixel-ratio: 1.5),
   only screen and (min-resolution: 1.5dppx) {
   .icon {
-    background-image: url("./assets/icon@2.png");
+    background-image: url("../assets/icon@2.png");
     background-size: 500px;
   }
 }
@@ -230,7 +230,7 @@ input:checked[type="checkbox"] {
   vertical-align: middle;
   text-align: left;
   white-space: nowrap;
-  background: #2c2f34 url("./assets/down.svg") no-repeat right 10px center;
+  background: #2c2f34 url("../assets/down.svg") no-repeat right 10px center;
   background-size: 10px;
   -webkit-appearance: none;
   -moz-appearance: none;

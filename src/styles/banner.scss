@@ -135,13 +135,13 @@ $ticketing-border: #6e40c4;
   width: 100%;
 
   .ss1 {
-    @include slider-img("./assets/main_slider01_2000.jpg");
+    @include slider-img("../assets/main_slider01_2000.jpg");
   }
   .ss2 {
-    @include slider-img("./assets/main_slider02_2000.jpg");
+    @include slider-img("../assets/main_slider02_2000.jpg");
   }
   .ss3 {
-    @include slider-img("./assets/main_slider03_2000.jpg");
+    @include slider-img("../assets/main_slider03_2000.jpg");
   }
 
   .swiper-slide {

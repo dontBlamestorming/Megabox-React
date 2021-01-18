@@ -11,40 +11,6 @@
   background: #fff;
 }
 
-/* 모바일 메뉴 */
-// .ham {
-//   display: block;
-//   width: 25px;
-//   height: 4px;
-// }
-// .ham span {
-//   position: relative;
-//   display: block;
-//   width: 25px;
-//   height: 4px;
-//   background: #39106a;
-// }
-// .ham span::before {
-//   content: "";
-//   width: 25px;
-//   height: 4px;
-//   background: #39106a;
-//   position: absolute;
-//   left: 0;
-//   bottom: -7px;
-//   transition: transform 0.3s;
-// }
-// .ham span::after {
-//   content: "";
-//   width: 25px;
-//   height: 4px;
-//   background: #39106a;
-//   position: absolute;
-//   left: 0;
-//   top: -7px;
-//   transition: transform 0.3s;
-// }
-
 .header {
   h1 {
     float: left;
