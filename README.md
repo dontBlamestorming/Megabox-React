@@ -6,6 +6,10 @@
 
 ## 자세히
 
+### Megabox page
+
+<img src="https://user-images.githubusercontent.com/41932978/105281502-acd6c600-5bef-11eb-8ecd-d603e0577f7b.jpg" style="width : 600px"/>
+
 ### Swiper React
 
 > 기존의 프로젝트에서는 swiper 라이브러리를 html에 css와 같이 직접 스크립팅 시켰습니다. 하지만 검색을 좀 해보니 react에서 swiper를 컴포넌트 형식으로 사용할 수 있음을 확인하여 package를 설치하고 document를 보며 사용하였습니다. 확실히 이전보다 props로 swiper를 config하는 것이 사용성에 있어서 매우 편합니다. 또한 어떠한 코드가 swiper에 이용되는지를 클래스명이 아닌 component로 확인이 가능하기 때문에 코드를 읽는데에 있어서 이해가 직관적으로 됩니다. 약간의 단점이라면 style을 커스터마이징에 있어서 제한은 있지만 이는 충분히 다른 방법으로 슈팅이 가능합니다.
